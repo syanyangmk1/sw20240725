@@ -1,144 +1,143 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <form action="save_ok.php">
-
-    <div class="container"></div>
-        <label for="fname">이름</label>
-        <input type="text" id="uname" name="uname" requied><br>
-        <label for="fname">부서</label>
-        <input type="text" id="uname" name="uname" requied><br>
-        <label for="fname">직책</label>
-        <input type="text" id="uname" name="uname" requied><br>
-
-        <label for="photo">사진</label>
-        <input type="file" value="파일선택">
-
-        <br>
-        <input type="submit" class="saveBtn">
-        <br>
-        <br>
-        <style>
-            .saveBtn {
-                width:100px; 
-                height: 30px; 
-                background-color: red; 
-                border: 0; 
-                border-radius: 6px; 
-                box-shadow: 1px 1px 2px;
-            }
-            /* css3maker.com에서 설정 후 복사 */
-            .element {
-                border: 2px solid rgba(100, 100, 100, 1);
-                border-radius: 4px;
-                background-color: rgba(247, 203, 203, 0.5);
-                box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.77);
-                text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.3);
-                padding: 10px 0px;
-                text-align: center;
-            }
-            .memListTbl {
-                border: 1px solid black;
-                width: 100%;
-                border-collapse: collapse;
-            }
-            .memListTbl tr th {
-                border: 1px solid black;
-            }
-            .memListTbl tr td {
-                border: 1px solid black;
-                text-align: center;
-            }
-            .subTbl tr td{
-                border: 0px solid black;
-                width: 100%;
-                border-collapse: collapse;
-            }
-            .subTbl tr td {
-                border-bottom: 1px solid black;
-            }
-        </style>
-    
-        
+    <title>example</title>
+    <!-- 인터널 방식(내부 설정 방식) -->
+    <style>
+        .saveBtn {
+            width:100px; 
+            height: 30px; 
+            background-color: red; 
+            border: 0; 
+            border-radius: 6px; 
+            box-shadow: 1px 1px 2px;
+        }
+        /* css3maker.com에서 설정 후 복사 */
+        .element {
+            border: 2px solid rgba(100, 100, 100, 1);
+            border-radius: 4px;
+            background-color: rgba(247, 203, 203, 0.5);
+            box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.77);
+            text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.3);
+            padding: 10px 0px;
+            text-align: center;
+        }
+        .memListTbl {
+            border: 1px solid black;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .memListTbl tr th {
+            border: 1px solid black;
+        }
+         tr td {
+            border: 1px solid black;
+            text-align: center;
+        }
+        .subTbl tr td {
+            border-left: 0 solid black;
+            border-right: 0 solid black;
+            border-top: 0 solid black;
+            border-bottom: 1 solid black;
+        }
+        div.container {
+            margin: auto;
+            max-width: 800px;
+            min-width: 600px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div>
-            <input type="submit" value="선택 삭제"><label for="fname">검색:</label>
-        <select name="이동">
-            <option value="1" selected>이름</option>
-        <input type="text" id="uname" name="uname" requied>
-        <table class="memListTbl">
-            <tr>
-                <td><input type="checkbox" id></td>
-                <td>번호</td>
-                <td>사진</td>
-                <td>사원명</td>
-                <td>부서</td>
-                <td>직급</td>
-                <td>수정</td>
-                <td>삭제</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" id></td>
-                <td>1043</td>
-                <td></td>
-                <td>홍길동</td>
-                <td>개발</td>
-                <td>대리</td>
-                <td><input type="submit" value="edit"></td>
-                <td><input type="submit" value="delete"></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>
-                    <table>
-                        <tr>
-                            <td>번호</td>
-                            <td>댓글 내용</td>
-                            <td>작성자</td>
-                            <td>수정</td>
-                            <td>삭제</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>멋진 사진입니다</td>
-                            <td>박문수</td>
-                            <td>수정</td>
-                            <td>삭제</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>좋아요^^ 퍼가요~</td>
-                            <td>일지매</td>
-                            <td>수정</td>
-                            <td>삭제</td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>
-                    <label for="fname">댓글</label>
-                    <input type="text" id="uname" name="uname" requied>
-                    <label for="fname">작성자</label>
-                    <input type="text" id="uname" name="uname" requied>
-                    <input type="submit" value="댓글입력">
-                </td>
-            </tr>
-        </table>
-    </form>
+            <!-- 입력 폼 -->
+            <form action="">
+            <label for="name">이름</label>
+            <input type="text" name="" id="name"><br>
+            <label for="dept">부서</label>
+            <input type="text" name="" id="dept"><br>
+            <label for="rank">직책</label>
+            <input type="text" name="" id="rank"><br>
+            <label for="photo">사진</label>
+            <input type="file" name="" id="photo"><br>
+                <tr>
+                    <input type="submit" class="saveBtn" value="새 사원 추가" style="">
+                </tr>
+             </form>
+        </div>
+        <hr>
+        <div>
+            <!-- 목록 -->
+            <p>
+                <input type="submit" value="선택 삭제">
+                <label for="name">검색</label>
+                <select> <option value="1" selected>이름</option></select>
+                <input type="text" name="" id="name">
+            </p>
+
+            <table class="memListTbl">
+                <tr>
+                    <th>
+                        <input type="checkbox" name="" id="">
+                    </th>
+                    <th>번호</th>
+                    <th>사진</th>
+                    <th>사원명</th>
+                    <th>부서</th>
+                    <th>직급</th>
+                    <th>수정</th>
+                    <th>삭제</th>
+                </tr>
+                <tr>
+                    <td rowspan="2"><input type="checkbox" name="" id=""></td>
+                    <td rowspan="2">1043</td>
+                    <td>
+                        <img src="img01.png" alt="사원1의 사진">
+                    </td>
+                    <td>홍길동</td>
+                    <td>개발</td>
+                    <td>대리</td>
+                    <td rowspan="2"><button>Edit</button></td>
+                    <td rowspan="2"><button>Delete</button></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <table class="subTbl" width="100%" cellspacing="0">
+                            <tr>
+                                <td width="10px">번호</td>
+                                <td>댓글내용</td>
+                                <td>작성자</td>
+                                <td>수정</td>
+                                <td>삭제</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>멋진 사진입니다.</td>
+                                <td>박문수</td>
+                                <td>수정</td>
+                                <td>삭제</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>좋아요^^ 퍼가요~</td>
+                                <td>일지매</td>
+                                <td>수정</td>
+                                <td>삭제</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    댓글 <input type="text">
+                                    작성자 <input type="text">
+                                    <button>댓글입력</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
-    
 </body>
 </html>
