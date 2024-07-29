@@ -2,32 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
     <script>
-        window.onload=function(){
-            var memoTxt = document.getElementById(memoTxt);
+        window.onload = function() {
+            var memoTxt = document.getElementById('memoTxt');
 
-            //querySelector('')은 CSS의 선택기(selector)를 그대로 사용 가능
-            //id는 #으로 시작
-            //class는 .으로 시작
-            //속성은 []로 구분 사용
-            //태그는 그냥 태그 이름
+            //querySelector 사용
             var demo = document.querySelector('#demo');
             var clickBtn = document.querySelector('#clickBtn');
-            var resetBtn = document.querySelector('resetBtn');
+            var resetBtn = document.querySelector('#resetBtn');
 
             //TDD 테스트 주도 개발
-            console.log(memotxt, demo, resetBtn);
+            console.log(memoTxt, demo, resetBtn);
 
-            //이벤트 핸들러
-            clickBtn.addEventListener('click',function(){
-                clickBtn.innerHTML = 'click'
-            })
-            resetBtn.addEventListener('reset',function(){
-                resetBtn.innerHTML = 'reset'
-            })
+            //이벤트 핸들러 추가
+            clickBtn.addEventListener('click', function(event) {
+                // 1. 클릭 되는지 확인
+                //alert('버튼 클릭 했다!');
+                console.log('버튼 클릭 했다!');
+
+                // 2. 메모 input 데이터 가져오기
+                console.dir(memoTxt.value);
+                var memoTxtVal = memoTxt.value;
+
+                // 3. 가져온 데이터 텍스트 변경
+                demo.innerHTML = memoTxtVal;
+
+                // 4. 초기화
+                memoTxt.value = '';
+            });
+
+            // 리셋 버튼에 이벤트 핸들러 추가
+            resetBtn.addEventListener('click', function(event) {
+                memoTxt.value = '';
+                demo.innerHTML = 'JavaScript can change HTML content';
+            });
         }
     </script>
 </head>
@@ -35,7 +46,7 @@
     <input type="text" id="memoTxt">
     <p id="demo">JavaScript can change HTML content</p>
 
-    <button type="button" id="clickBtn">click</button>
+    <button type="button" id="clickBtn">Click</button>
     <button type="button" id="resetBtn">Reset</button>
 </body>
 </html>
