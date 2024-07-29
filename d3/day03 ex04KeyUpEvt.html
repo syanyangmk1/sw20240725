@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var memoTxt = document.getElementById('memoTxt');
+            var demo = document.querySelector('#demo');
+            var clickBtn = document.querySelector('#clickBtn');
+            var resetBtn = document.querySelector('#resetBtn');
+
+            // 클릭 버튼에 이벤트 핸들러 추가
+            clickBtn.addEventListener('click', function(event) {
+                // 메모 input의 데이터 가져오기
+                var memoTxtVal = memoTxt.value;
+                
+                // 가져온 데이터를 텍스트로 변경
+                demo.innerHTML = memoTxtVal;
+
+                // 초기화
+                memoTxt.value = "";
+                memoTxt.focus();
+            });
+
+            // Enter 키를 눌렀을 때 메모를 텍스트로 변경
+            memoTxt.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') { // Enter 키인지 확인
+                    // 메모 input의 데이터 가져오기
+                    var memoTxtVal = memoTxt.value;
+                    
+                    // 가져온 데이터를 텍스트로 변경
+                    demo.innerHTML = memoTxtVal;
+                    
+                    memoTxt.value = "";
+                    memoTxt.focus();
+                    
+                    event.preventDefault();
+                }
+            });
+
+            // == : 대충 비슷
+            // === : 타입까지 아예 같음
+
+            //function함수에서 this가 이벤트가 발생한 객체
+            //화살표 함수에서 this는 객체 자신
+            //console.log(memoTxt == this);
+            //console.log(memoTxt.value);
+            //이벤트 핸들러 안에서 event객체는 자동완성
+            //벗 event 매개변수 직접 선언이 안전
+
+            // 리셋 버튼에 이벤트 핸들러 추가
+            resetBtn.addEventListener('click', function(event) {
+                memoTxt.value = '';
+                demo.innerHTML = 'JavaScript can change HTML content.';
+                memoTxt.focus();
+            });
+        }
+    </script>
+</head>
+<body>
+    메모: <input type="text" id="memoTxt" value="">
+    <p id="demo">JavaScript can change HTML content.</p>
+
+    <!-- 인터널 방식 적용 -->
+    <button type="button" id="clickBtn">Click</button>
+    <button type="button" id="resetBtn">Reset</button>
+</body>
+</html>
