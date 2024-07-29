@@ -5,19 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        var todolist = [
+            {seq:101, title:"여행하기", done:false},
+            {seq:102, title:"포트폴리오 만들기", done:false},
+            {seq:103, title:"팀 프로젝트 하기", done:false},
+            {seq:104, title:"엄마 생일 선물 준비하기", done:false},
+        ];
+        var seqCnt = 105;
+
         window.onload = function() {
             var memoTxt = document.getElementById('memoTxt');
             var demo = document.querySelector('#demo tbody');
             var clickBtn = document.querySelector('#clickBtn');
             var resetBtn = document.querySelector('#resetBtn');
 
-            var handleEvent = function(event) {
+            function drawList() {
                 demo.innerHTML += '<tr align="center">' +
                     '<td><input type="checkbox"></td>' +
                     '<td>' + memoTxt.value + '</td>' +
                     '<td><button>수정</button></td>' +
                     '<td><button>삭제</button></td>' +
                 '</tr>';
+            }
+
+            var handleEvent = function(event) {
+                drawList();
                 memoTxt.value = "";
                 memoTxt.focus();
             }
