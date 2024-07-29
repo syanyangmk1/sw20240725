@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var memoTxt = document.getElementById('memoTxt');
+            var demo = document.querySelector('#demo tbody');
+            var clickBtn = document.querySelector('#clickBtn');
+            var resetBtn = document.querySelector('#resetBtn');
+
+            var handleEvent = function(event) {
+                demo.innerHTML += '<tr align="center">' +
+                    '<td><input type="checkbox"></td>' +
+                    '<td>' + memoTxt.value + '</td>' +
+                    '<td><button>수정</button></td>' +
+                    '<td><button>삭제</button></td>' +
+                '</tr>';
+                memoTxt.value = "";
+                memoTxt.focus();
+            }
+
+            clickBtn.addEventListener('click', handleEvent);
+
+            memoTxt.addEventListener('keyup', function(event) {
+                if (event.keyCode === 13) {
+                    handleEvent(event);
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                memoTxt.value = '';
+                demo.innerHTML = '';
+                memoTxt.focus();
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Todo List</h1>
+    메모: <input type="text" id="memoTxt" value="안녕 세계">
+    <!-- 인터널 방식 적용 -->
+    <button type="button" id="clickBtn">Click</button>
+    <button type="button" id="resetBtn">Reset</button>
+    <hr>
+    <table width="550" border="1">
+        <thead>
+            <tr>
+                <th>확인</th>
+                <th>할일</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody id="demo">
+            <tr align="center">
+                <td><input type="checkbox"></td>
+                <td>개 밥 주기</td>
+                <td><button>수정</button></td>
+                <td><button>삭제</button></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
