@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>피보나치 수열 계산기</title>
+</head>
+<body>
+    <h1>피보나치 수열 계산기</h1>
+    <form id="fibonacciForm">
+        <label for="numInput">숫자를 입력하세요:</label>
+        <input type="number" id="numInput" name="num" min="1" required>
+        <input type="submit" value="계산">
+    </form>
+    <hr>
+    <div id="resultBox">결과: </div>
+
+    <script>
+        function fibonacci(n) {
+            let sequence = [];
+            let prev = 0, cur = 1, next;
+
+            for (let i = 0; i < n; i++) {
+                sequence.push(cur);
+                next = prev + cur;
+                prev = cur;
+                cur = next;
+            }
+
+            return sequence;
+        }
+
+        document.getElementById('fibonacciForm').onsubmit = function(e) {
+            e.preventDefault();
+            let num = Number(document.getElementById('numInput').value);
+            let sequence = fibonacci(num);
+            document.getElementById('resultBox').innerText = `결과: ${sequence.join(', ')}`;
+        }
+    </script>
+</body>
+</html>
