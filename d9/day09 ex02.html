@@ -6,79 +6,35 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>할 일 입력</h1>
+    <h1>Todo List</h1>
     <p>
         할일: <input type="text" class="title">
         <button id="saveBtn">SAVE</button>
     </p>
-    <p class="resultArea">
-        결과: 
-    </p>
+    <ul class="resultArea">
+    </ul>
 
     <script>
-        // CSS 셀렉터를 이용해서 DOM 참조
-        // https://www.w3schools.com/jsref/met_element_queryselector.asp
-        // querySelectALL은 여러개를 List형태로 가져온다.
-        var title = document.querySelector(".title");
         var saveBtn = document.querySelector("#saveBtn");
-        
-        // 확인
-        console.log(title);
-        console.dir(saveBtn);
+        var title = document.querySelector(".title");
 
-        // 할 일 리스트
-        var todoList = [];
-        var number = 1;
-
-        // 리스트 그리기 함수
-        function drawList() {
-            var resultArea = document.querySelector(".resultArea");
-            resultArea.innerHTML = "결과:";
-            todoList.forEach(function(todo) {
-                var pTag = document.createElement("p");
-                pTag.innerText = todo.title + " ";
-                var delBtn = document.createElement("button");
-                delBtn.innerText = "삭제";
-                delBtn.onclick = function() {
-                    var idx = todoList.findIndex(function(t) {
-                        return t.no === todo.no;
-                    });
-                    if (idx !== -1) {
-                        todoList.splice(idx, 1);
-                        drawList();
-                    }
-                };
-                pTag.appendChild(delBtn);
-                resultArea.appendChild(pTag);
-            });
+        // 단순 텍스트를 추가 하는 형식을 <li> 태그로 변경
+        function append() {
+            var listArea = document.querySelector(".resultArea");
+            listArea.innerHTML += `<li>${title.value}</li>`;
+            title.value = "";
+            title.focus();
         }
 
-        // 버튼 이벤트 핸들러
         saveBtn.onclick = function() {
-            var newTitle = title.value.trim();
-            if (newTitle) {
-                todoList.push({no: number++, title: newTitle, done: false});
-                drawList();
-                title.value = ""; // 입력 필드 초기화
-                title.focus();    // 입력 필드에 다시 포커스
-            }
-        };
+            append()
+        }
 
-        // 키 이벤트 사용하기
         title.onkeydown = function(e) {
-            if (e.keyCode === 13) {
-                var newTitle = title.value.trim();
-                if (newTitle) {
-                    todoList.push({no: number++, title: newTitle, done: false});
-                    drawList();
-                    title.value = ""; // 입력 필드 초기화
-                    title.focus();    // 입력 필드에 다시 포커스
-                }
+            if(e.keyCode === 13) {
+                append();
             }
-        };
-
-        // 초기 리스트 그리기
-        drawList();
+        }
     </script>
 </body>
 </html>
